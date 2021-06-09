@@ -29,7 +29,7 @@ export class SingleSentenceSyntacticAnalyzer implements SyntacticAnalyzer {
     }
 
     analyseText(text: String): AnalysisResult {
-        const words = text.toLowerCase().split(this.SEPARATOR);
+        const words = text.split(this.SEPARATOR);
 
         const languageMatchs: LanguageMatch[] = [];
         for (const language of this.languages) {
@@ -54,11 +54,13 @@ export class SingleSentenceSyntacticAnalyzer implements SyntacticAnalyzer {
                     const minimunMatch = syntacticStructure.minimumTerminalsMatch ? this.isMinimunTerminalMatch(textMatchs, syntacticStructure.minimumTerminalsMatch) : false;
                     
                     if (allMatch || minimunMatch) {
-                        const syntacticStractureMatch = new SyntacticStructureMatch();
-                        syntacticStractureMatch.words = text.split(this.SEPARATOR);
-                        syntacticStractureMatch.fullMatch = allMatch;
-                        syntacticStractureMatch.syntacticsStructure = syntacticStructure;
-                        syntacticStractureMatch.textMatch = textMatchs;
+                        const syntacticStractureMatch = new SyntacticStructureMatch(
+                            text.split(this.SEPARATOR),
+                            syntacticStructure,
+                            textMatchs,
+                            allMatch,
+                            syntaxInit
+                        );
                         syntacticStractureMatch.textNotMatch = this.getTextNotMatch(textMatchs, words);
 
                         languageMatch.analysisSyntacticStructures.push(syntacticStractureMatch);
@@ -97,7 +99,7 @@ export class SingleSentenceSyntacticAnalyzer implements SyntacticAnalyzer {
     
                             for (let i = nomalized.positioner.position; i < nomalized.textWords.length; i++) {
                                 const word = nomalized.textWords[i];
-                                if (wordGroup.content?.map(it => it.toLowerCase()).includes(word)) {
+                                if (wordGroup.content?.map(it => it.toLowerCase()).includes(word.toLowerCase())) {
                                     match = true;
                                     wordComplete += " " + word;
                                     lastPosition.push(i);
@@ -125,7 +127,7 @@ export class SingleSentenceSyntacticAnalyzer implements SyntacticAnalyzer {
 
                         for (let i = nomalized.positioner.position; i < nomalized.textWords.length; i++) {
                             const word = nomalized.textWords[i];
-                            if (wordGroup.content?.map(it => it.toLowerCase()).includes(word)) {
+                            if (wordGroup.content?.map(it => it.toLowerCase()).includes(word.toLowerCase())) {
                                 nomalized.positioner.applyPosition(i);
 
                                 const textMatch = new TextMatch(
