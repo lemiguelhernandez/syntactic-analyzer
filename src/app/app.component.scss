@@ -1,0 +1,39 @@
+.search-container {
+    margin-top: 15vh;
+    .title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 10vh;
+        font-weight: bold;
+    }
+    .input-container {
+        margin: auto;
+        width: 70%;
+        .input-text {
+            font-weight: bold;
+        }
+        .input {
+            margin-top: 10px;
+            .p-inputtext {
+                width: 100%;
+                padding: 15px;
+                border-radius: 5px;
+                border: 1px solid #c8d5c8;
+            }
+        }
+    }
+}
+
+.actions-footer {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    width: 150px;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    .button {
+        display: inline-block;
+    }
+}

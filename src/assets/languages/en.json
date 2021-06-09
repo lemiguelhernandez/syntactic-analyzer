@@ -1,0 +1,159 @@
+{
+    "languageName": "English",
+    "strategyRead": "LR",
+    "syntacticsStructure": [
+        {
+            "name": "Negative sentence",
+            "initSymbol": "F",
+            "showName": true,
+            "minimumTerminalsMatch": [
+                [
+                    "S",
+                    "NV"
+                ],
+                [
+                    "NV",
+                    "C"
+                ]
+            ],
+            "syntax": [
+                {
+                    "code": "F",
+                    "name": "Initial Symbol",
+                    "transitions": [
+                        "S",
+                        "P"
+                    ]
+                },
+                {
+                    "code": "S",
+                    "name": "Subject",
+                    "containsInWords": "ART CN|PN|PP|DP"
+                },
+                {
+                    "code": "P",
+                    "name": "Predicate",
+                    "transitions": [
+                        "NV",
+                        "C"
+                    ]
+                },
+                {
+                    "code": "NV",
+                    "name": "Negative Verb",
+                    "containsInWords": "V NG|NV",
+                    "showValue": false
+                },
+                {
+                    "code": "C",
+                    "name": "Complement",
+                    "containsInWords": "C",
+                    "showValue": false
+                }
+            ]
+        }
+    ],
+    "words": {
+        "groups": [
+            {
+               "code": "ART",
+               "name": "Article",
+               "pluralName": "Articles",
+               "content": [
+                   "The"
+               ]
+            },
+            {
+                "code": "CN",
+                "name": "Common noun",
+                "pluralName": "Commons nouns",
+                "content": [
+                    "car",
+                    "cars",
+                    "table",
+                    "tables"
+                ]
+            },
+            {
+                "code": "PN",
+                "name": "Proper Noun",
+                "pluralName": "Proper nouns",
+                "content": [
+                    "Michael",
+                    "Ann",
+                    "Cartagena",
+                    "Charles"
+                ]
+            },
+            {
+                "code": "PP",
+                "name": "Personal Pronoun",
+                "pluralName": "Personal Pronouns",
+                "content": [
+                    "I",
+                    "You",
+                    "He",
+                    "She",
+                    "It",
+                    "We"
+                ],
+                "readonly": true
+            },
+            {
+                "code": "DP",
+                "name": "Demonstrative Pronoun",
+                "pluralName": "Demonstrative Pronouns",
+                "content": [
+                    "This",
+                    "That",
+                    "These",
+                    "Those"
+                ],
+                "readonly": true
+            },
+            {
+                "code": "V",
+                "name": "Verb",
+                "pluralName": "Verbs",
+                "content": [
+                    "am",
+                    "are",
+                    "is"
+                ],
+                "readonly": true
+            },
+            {
+                "code": "NV",
+                "name": "Negative Verb",
+                "pluralName": "Negative Verbs",
+                "content": [
+                    "aren't",
+                    "isn't"
+                ],
+                "readonly": true
+            },
+            {
+                "code": "NG",
+                "name": "Negation",
+                "pluralName": "Negations",
+                "content": [
+                    "not"
+                ],
+                "readonly": true
+            },
+            {
+                "code": "C",
+                "name": "Complement",
+                "pluralName": "Complements",
+                "content": [
+                    "red",
+                    "old",
+                    "happy",
+                    "city",
+                    "a colombian",
+                    "from Japan"
+                ]
+            }
+        ]
+    }
+}

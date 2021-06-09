@@ -1,0 +1,54 @@
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/nova/theme.css';
+@import '~primeng/resources/primeng.min.css';
+
+@font-face {
+    font-family: 'Lato';
+    src: url('assets/fonts/Lato-Regular.ttf') format('opentype');
+}
+
+body, .p-component {
+    font-family: Lato, serif !important;
+}
+
+.p-sidebar-top {
+    height: 100vh !important;
+    text-align: center;
+}
+
+/* icons */
+
+.image-tecno {
+    width: 250px;
+    height: 150px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url('./assets/images/tecno.png') no-repeat center center;
+    background-size: contain;
+}
+
+
+/*  theme */
+
+body {
+    color: white;
+	background: linear-gradient(-45deg, #ee7752, #eeca52, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+.p-button.p-button-outlined {
+    color: #fff;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
