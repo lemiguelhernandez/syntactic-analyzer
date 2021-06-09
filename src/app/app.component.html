@@ -28,8 +28,7 @@
 <div *ngIf="analysisResult" class="analysis-content">
     <div *ngIf="analysisResult.languages?.length === 0" style="text-align: center;">
       <i class="pi pi-times-circle" style="color: rgb(230, 66, 66)"></i>
-      <br>
-      <span>No detected!</span>
+      <span style="margin-left: 5px;">No sentence detected!</span>
     </div>
     <div *ngFor="let language of analysisResult.languages">
       <div *ngFor="let expression of language.analysisSyntacticStructures">
@@ -50,9 +49,10 @@
     </div>
 </div>
 
+<app-word-editor *ngIf="syntacticAnalyzer" [languages]="syntacticAnalyzer.getLanguages()" [show]="showManageWords" (onClose)="onCloseManageWords()"></app-word-editor>
 
 <div class="actions-footer">
   <button pButton type="button" icon="pi pi-info" class="p-button-rounded p-button-outlined" (click)="showParticipant()"></button>
-  <button pButton type="button" icon="pi pi-th-large" class="p-button-rounded p-button-outlined"></button>
+  <button pButton type="button" icon="pi pi-th-large" class="p-button-rounded p-button-outlined" (click)="showManageWord()"></button>
   <button *ngIf="!!text" style="color: #F06659;" pButton type="button" icon="pi pi-times" class="p-button-rounded p-button-outlined" (click)="clear()"></button>
 </div>

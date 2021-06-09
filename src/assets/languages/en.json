@@ -49,7 +49,7 @@
                 {
                     "code": "C",
                     "name": "Complement",
-                    "containsInWords": "ART CNP|PR CNTY|SC"
+                    "containsInWords": "ART CNP|PR CNTY|ART PR C2|SC"
                 }
             ]
         }
@@ -85,7 +85,8 @@
                     "Michael",
                     "Ann",
                     "Cartagena",
-                    "Charles"
+                    "Charles",
+                    "Mary"
                 ]
             },
             {
@@ -98,7 +99,8 @@
                     "He",
                     "She",
                     "It",
-                    "We"
+                    "We",
+                    "They"
                 ],
                 "readonly": true
             },
@@ -161,7 +163,10 @@
                     "red",
                     "old",
                     "happy",
-                    "colombian"
+                    "hungry",
+                    "colombian",
+                    "cool",
+                    "good"
                 ]
             },
             {
@@ -169,7 +174,8 @@
                 "name": "Preposition",
                 "pluralName": "Prepositions",
                 "content": [
-                    "from"
+                    "from",
+                    "good"
                 ]
             },
             {
@@ -179,6 +185,14 @@
                 "content": [
                     "Colombia",
                     "Japan"
+                ]
+            },
+            {
+                "code": "C2",
+                "name": "Complement need preposition",
+                "pluralName": "Complements need preposition",
+                "content": [
+                    "idea"
                 ]
             }
         ]

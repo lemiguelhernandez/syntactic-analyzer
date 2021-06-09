@@ -6,6 +6,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { FormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
+import { ChipsModule } from 'primeng/chips';
 
 @NgModule({
   exports: [
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     OverlayPanelModule,
     InputTextModule,
     ButtonModule,
-    SidebarModule
+    SidebarModule,
+    DialogModule,
+    ChipsModule
   ]
 })
 export class SharedLibsModule { }

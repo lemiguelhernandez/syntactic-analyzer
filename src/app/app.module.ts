@@ -7,6 +7,7 @@ import { SharedLibsModule } from './shared/shared-libs.module';
 import { StatusModule } from './components/status/status.module';
 import { SyntacticLanguageModule } from './components/syntactic-language/syntactic-language.module';
 import { SyntacticTreeModule } from './components/syntactic-tree/syntactic-tree.module';
+import { WordEditorModule } from './components/word-editor/word-editor.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SyntacticTreeModule } from './components/syntactic-tree/syntactic-tree.
     SharedLibsModule,
     StatusModule,
     SyntacticLanguageModule,
-    SyntacticTreeModule
+    SyntacticTreeModule,
+    WordEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

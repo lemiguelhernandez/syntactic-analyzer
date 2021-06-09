@@ -1,0 +1,15 @@
+<p-dialog header="Manage Words" [(visible)]="show" [style]="{width: '50vw'}" [baseZIndex]="10000" (onHide)="onHide()"
+    [modal]="true">
+    <div *ngIf="languages && languages.length > 0">
+        <div *ngFor="let language of languages">
+            <div *ngFor="let wordGroup of language.words?.groups">
+                <span style="font-weight: bold;">[{{wordGroup.code}}] - {{wordGroup.name}} <span *ngIf="wordGroup.readonly || false">(Read Only)</span></span>
+                <br /><br />
+                <p-chips [(ngModel)]="wordGroup.content" [disabled]="wordGroup.readonly || false"></p-chips>
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</p-dialog>

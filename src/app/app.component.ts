@@ -13,6 +13,7 @@ import { SyntacticAnalyzer } from './shared/syntactic-analytic/syntactic-analyti
 })
 export class AppComponent {
   showParticipants = false;
+  showManageWords = false;
   text = "";
 
   /* Analysis */
@@ -36,6 +37,15 @@ export class AppComponent {
 
   showParticipant() {
     this.showParticipants = true;
+  }
+
+  showManageWord() {
+    this.showManageWords = true;
+  }
+
+  onCloseManageWords() {
+    this.showManageWords = false;
+    this.onTextChange();
   }
 
   onTextChange() {
