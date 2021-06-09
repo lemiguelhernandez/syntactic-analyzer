@@ -24,9 +24,32 @@
   </div>
 </div>
 
-<div class="analysis-content">
+<br>
+<div *ngIf="analysisResult" class="analysis-content">
+    <div *ngIf="analysisResult.languages?.length === 0" style="text-align: center;">
+      <i class="pi pi-times-circle" style="color: rgb(230, 66, 66)"></i>
+      <br>
+      <span>No detected!</span>
+    </div>
+    <div *ngFor="let language of analysisResult.languages">
+      <div *ngFor="let expression of language.analysisSyntacticStructures">
 
+          <!-- status info -->
+          <app-status [expression]="expression"></app-status>
+          <br/><br/>
+          <!-- syntactic container -->
+          <div class="syntactic-container">
+              <div class="label-info">
+                <app-syntactic-language [expression]="expression"></app-syntactic-language>
+              </div>
+              <div class="syntactic-tree">
+                
+              </div>
+          </div>
+      </div>
+    </div>
 </div>
+
 
 <div class="actions-footer">
   <button pButton type="button" icon="pi pi-info" class="p-button-rounded p-button-outlined" (click)="showParticipant()"></button>

@@ -24,6 +24,19 @@
     }
 }
 
+.syntactic-container {
+    margin: auto;
+    width: 70%;
+    padding-top: 30px;
+    display: flex;
+    .label-info {
+        flex: 1;
+    }
+    .syntactic-tree {
+        flex: 1;
+    }
+}
+
 .actions-footer {
     position: absolute;
     left: 50%;

@@ -5,7 +5,12 @@ export class TextMatch {
     terminal?: SyntaxModel;
     position: number[];
 
-    constructor() {
+    constructor(
+        text: String,
+        terminal: SyntaxModel
+    ) {
+        this.text = text;
+        this.terminal = terminal;
         this.position = [];
     }
 }

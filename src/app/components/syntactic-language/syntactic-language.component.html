@@ -1,0 +1,11 @@
+<div *ngIf="expression">
+  <div *ngFor="let syntaxt of getSyntaxts()" style="margin-bottom: 5px;">
+      <span>{{syntaxt.code}}</span>
+      &nbsp;
+      <i class="pi pi-arrow-right"></i>
+      &nbsp;
+      <span *ngIf="syntaxt.transitions">{{syntaxt.transitions.join(", ")}}</span>
+      <span *ngIf="syntaxt.containsInWords">{{syntaxt.containsInWords}}</span>
+      <br>
+  </div>
+</div>

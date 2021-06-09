@@ -24,19 +24,11 @@ export class SyntacticsStructureModel {
     /**
      * 
      */
-    minimumTerminalsMatch?: string[]
+    minimumTerminalsMatch?: string[][]
 
     /**
      * 
      */
     syntax?: SyntaxModel[];
 
-    /**
-     * 
-     * @returns 
-     */
-    getSyntaxTerminals(): SyntaxModel[] {
-      if (!this.syntax) return [];
-      return this.syntax.filter(it => !it.transitions);
-    }
 }

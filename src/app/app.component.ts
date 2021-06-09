@@ -2,7 +2,7 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { LanguageModel } from './model/language-model';
 import { LanguageService } from './service/language.service';
-import { SimpleSyntacticAnalyzer } from './shared/syntactic-analytic/impl/simple-syntactic-analytic';
+import { SingleSentenceSyntacticAnalyzer } from './shared/syntactic-analytic/impl/single-sentence-syntactic-analyzer';
 import { AnalysisResult } from './shared/syntactic-analytic/result/analysis-result';
 import { SyntacticAnalyzer } from './shared/syntactic-analytic/syntactic-analytic';
 
@@ -22,7 +22,7 @@ export class AppComponent {
   constructor(
     private languageService: LanguageService
   ) {
-    this.syntacticAnalyzer = new SimpleSyntacticAnalyzer();
+    this.syntacticAnalyzer = new SingleSentenceSyntacticAnalyzer();
     this.languageService.fetch("en")
       .subscribe(
         (res: HttpResponse<LanguageModel>) => {
@@ -39,10 +39,12 @@ export class AppComponent {
   }
 
   onTextChange() {
-    if (!this.text) return;
+    if (!this.text) {
+      this.analysisResult = undefined;
+      return;
+    }
 
-    this.analysisResult = this.syntacticAnalyzer.analyseText(this.text);
-    // console.log(this.analysisResult);
+    this.analysisResult = this.syntacticAnalyzer.analyseText(this.text.trim());
   }
 
   clear() {
